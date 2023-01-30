@@ -1,0 +1,117 @@
+@import "mixins";
+
+$base-border-radius: 1.8rem;
+
+.container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    @include flex-center-column;
+    background-color: #fff;
+    @include box-shadow;
+    max-width: 1440px;
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    border-radius: $base-border-radius;
+    .search-box {
+        width: 80%;
+        margin: 3vh 0;
+        font-size: 2rem;
+        display: flex;
+        justify-content: space-around;
+        input#country-input {
+            font-size: 1rem;
+            border-radius: $base-border-radius;
+            padding: 1rem 1.5rem;
+            width: 60%;
+            min-width: 200px;
+            color: black;
+            border: 1px solid gray;
+            &:focus-visible {
+                outline: none;
+            }
+              
+            &:focus {
+                @include box-shadow;
+            }
+              
+            &:active {
+                @include box-shadow;
+            }
+        }
+        button#country-btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            border-radius: $base-border-radius;
+            border: none;
+            background-color: #0049ff;
+            color: white;
+            &:hover {
+                background-color: black;
+                cursor: pointer;
+                transition: 0.6s ease-in-out;
+            }
+        }
+    }
+    #search-results {
+        @include flex-center-column;
+        width: 80%;
+        font-size: 2rem;
+        margin: 3vh 0;
+        #country-flag {
+            @include box-shadow;
+            border-radius: 1rem;
+            height: 25vh;
+            max-height: 230px;
+        }
+        span {
+            margin-top: 1.5vh;
+            font-weight: 700;
+            font-size: 2.3rem;
+            text-align: center;
+        }
+    }
+  }
+
+@media screen and (max-width: 768px){
+.container{
+    width: 85vw;
+    .search-box {
+        width: 90%;
+        justify-content: space-between;
+    }
+    #search-results {
+        width: 90%;
+        #country-flag{
+            max-width: 90%;
+        }
+    }
+}
+}
+
+@media screen and (max-width: 576px){
+.container{
+    width: 90vw; 
+    .search-box{
+    flex-direction: column;
+    align-items: center;
+    margin: 5vh 0;
+        input#country-input{
+            width: 100%;
+        }
+        button#country-btn{
+        margin-top: 3vh;
+        }
+    }
+    #search-results{
+        margin: 0vh 0vh 5vh 0vh;
+        #country-flag{
+        height: auto;
+        max-height: 20vh;
+        }
+        span{
+            font-size: 1.8rem;
+        }
+    }
+}
+}
